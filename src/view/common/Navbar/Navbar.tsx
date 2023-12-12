@@ -33,7 +33,7 @@ export class Navbar extends Component {
                         </select>
                         <LanguageIcon style={{fontSize : 18}}/>
                         <select className="text-gray-500 ml-2 focus:outline-0">
-                            <option className="border-0">SRILANKA RS.
+                            <option className="border-0">ENGLISH
                         </option>
                         </select>
                     </div>
@@ -46,7 +46,7 @@ export class Navbar extends Component {
                 </div>
 
                 {/*logo and search section*/}
-                <div className="flex justify-between pt-3 h-20 border-b-2 pb-3">
+                <div className="flex justify-between pt-3 h-20 pb-3">
                     {/*logo*/}
                     <img src={logo} className="h-14 ml-36 mt-1"/>
 
@@ -59,19 +59,33 @@ export class Navbar extends Component {
                     </div>
 
                     {/*number and cart buttons*/}
-                    <div className="h-16 text-[20px] flex mr-36 mt-2 text-gray-500">
+                    <div className="h-16 text-[20px] flex mr-36 mt-2 text-gray-700">
                         <PermPhoneMsgIcon style={{fontSize : 40}}/>
                         <div className="mr-10">
                             <p className="font-light text-[8px]">24 Hrs Hotline</p>
                             <h4 className="text-xl text-gray-700">078 7155885</h4>
                         </div>
-                        <PersonOutlineOutlinedIcon style={{fontSize : 30}} className="mr-5 text-gray-500 mt-2 hover:text-blue-900"/>
+                        <PersonOutlineOutlinedIcon style={{fontSize : 30}} className="mr-5 mt-2 hover:text-blue-900"/>
                         <FavoriteBorderOutlinedIcon style={{fontSize : 30}} className="mr-5 font-light mt-2 hover:text-blue-900"/>
                         <ShoppingBagOutlinedIcon style={{fontSize : 30}} className="mt-2 hover:text-blue-900"/>
 
-
-
                     </div>
+                </div>
+
+                {/* page list section*/}
+                <div className="ml-36 mr-36 border-t-2 pt-2 flex justify-between text-gray-600">
+                    <div>
+                        <ul className="flex">
+                            <li className="mr-8">Home</li>
+                            <li className="mr-8">About</li>
+                            <li className="mr-8">Shop</li>
+                            <li className="mr-8">Track Order</li>
+                            <li className="mr-8">Policy</li>
+                            <li className="mr-8">Contact</li>
+                        </ul>
+                    </div>
+
+                    <p>Login / Signup</p>
                 </div>
 
 
