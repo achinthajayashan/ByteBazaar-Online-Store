@@ -73,15 +73,15 @@ export class Navbar extends Component {
                 </div>
 
                 {/* page list section*/}
-                <div className="ml-36 mr-36 border-t-2 pt-2 flex justify-between text-gray-600">
+                <div className="ml-36 mr-36 border-t-2 flex justify-between text-gray-600 pt-2">
                     <div>
                         <ul className="flex">
-                            <li className="mr-8">Home</li>
-                            <li className="mr-8">About</li>
-                            <li className="mr-8">Shop</li>
-                            <li className="mr-8">Track Order</li>
-                            <li className="mr-8">Policy</li>
-                            <li className="mr-8">Contact</li>
+                            <li className="mr-8 border-b-2 border-b-blue-800 pt-1 text-blue-800">Home</li>
+                            <li className="mr-8 pt-1">About</li>
+                            <li className="mr-8 pt-1">Shop</li>
+                            <li className="mr-8 pt-1">Track Order</li>
+                            <li className="mr-8 pt-1">Policy</li>
+                            <li className="mr-8 pt-1">Contact</li>
                         </ul>
                     </div>
 
