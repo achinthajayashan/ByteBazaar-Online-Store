@@ -15,6 +15,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import {Link} from "react-router-dom";
 export class Navbar extends Component {
     render() {
         return (
@@ -73,19 +74,46 @@ export class Navbar extends Component {
                 </div>
 
                 {/* page list section*/}
-                <div className="ml-36 mr-36 border-t-2 flex justify-between text-gray-600 pt-2">
+                <div className="ml-36 mr-36 border-t-2 flex justify-between text-gray-600 pt-2 pb-4">
                     <div>
                         <ul className="flex">
-                            <li className="mr-8 border-b-2 border-b-blue-800 pt-1 text-blue-800">Home</li>
-                            <li className="mr-8 pt-1">About</li>
-                            <li className="mr-8 pt-1">Shop</li>
-                            <li className="mr-8 pt-1">Track Order</li>
-                            <li className="mr-8 pt-1">Policy</li>
-                            <li className="mr-8 pt-1">Contact</li>
+                            <li className="mr-8 border-b-2 border-b-blue-800 pt-1 text-blue-800">
+                                <Link to="/">
+                                Home
+                                </Link>
+                            </li>
+                            <li className="mr-8 pt-1">
+                                <Link to="/about">
+                                    About
+                                </Link>
+                            </li>
+                            <li className="mr-8 pt-1">
+                                <Link to="/shop">
+                                    Shop
+                                </Link>
+                            </li>
+                            <li className="mr-8 pt-1">
+                                <Link to="/track">
+                                    Track Order
+                                </Link>
+                            </li>
+                            <li className="mr-8 pt-1">
+                                <Link to="/policy">
+                                    Policy
+                                </Link>
+                            </li>
+                            <li className="mr-8 pt-1">
+                                <Link to="/contact">
+                                    Contact
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
-                    <p>Login / Signup</p>
+                    <p>
+                        <Link to="/signIn">
+                            Login / Signup
+                        </Link></p>
                 </div>
 
 
