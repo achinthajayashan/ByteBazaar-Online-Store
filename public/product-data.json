@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "category": "Headset",
+    "name": "MOXOM MX WL55",
+    "price": "3200.00",
+    "currency": "Rs.",
+    "image": "MX-WL55_bl__1_-removebg-preview.png"
+  },
+  {
+    "id": 2,
+    "category": "Smart Watch",
+    "name": "T800 Ultra",
+    "price": "2500.00",
+    "currency": "Rs.",
+    "image": "1414-removebg-preview.png"
+  },
+  {
+    "id": 3,
+    "category": "Bluetooth Speaker",
+    "name": "Angusen M9",
+    "price": "2000.00",
+    "currency": "Rs.",
+    "image": "augosen_m9_speaker-removebg-preview.png"
+  }
+]

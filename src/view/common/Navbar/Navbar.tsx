@@ -16,6 +16,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import {Link} from "react-router-dom";
+import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
 export class Navbar extends Component {
     render() {
         return (
@@ -68,7 +69,7 @@ export class Navbar extends Component {
                         </div>
                         <PersonOutlineOutlinedIcon style={{fontSize : 30}} className="mr-5 mt-2 hover:text-blue-900"/>
                         <FavoriteBorderOutlinedIcon style={{fontSize : 30}} className="mr-5 font-light mt-2 hover:text-blue-900"/>
-                        <ShoppingBagOutlinedIcon style={{fontSize : 30}} className="mt-2 hover:text-blue-900"/>
+                        <Link to="/shopping-cart"><ShoppingBagOutlinedIcon style={{fontSize : 30}} className="mt-2 hover:text-blue-900"/></Link>
 
                     </div>
                 </div>

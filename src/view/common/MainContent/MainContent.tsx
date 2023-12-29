@@ -7,6 +7,8 @@ import {TrackOrder} from "../../pages/trackOrder/TrackOrder";
 import {Policy} from "../../pages/policy/Policy";
 import {Contact} from "../../pages/contact/Contact";
 import {SignIn} from "../../pages/signIn/SignIn";
+import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
+import {ModifyCart} from "../ModifyCart/ModifyCart";
 
 export class MainContent extends Component {
     render() {
@@ -19,6 +21,11 @@ export class MainContent extends Component {
                 <Route path="/policy" Component={Policy}></Route>
                 <Route path="/contact" Component={Contact}></Route>
                 <Route path="/signin" Component={SignIn}></Route>
+                <Route path="/shopping-cart"
+                       element={<ShoppingCart
+                           itemsList={ModifyCart.itemsList}/>
+                       }>
+                </Route>
             </Routes>
         );
     }
