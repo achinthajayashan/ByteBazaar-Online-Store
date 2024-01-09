@@ -22,7 +22,7 @@ export class Navbar extends Component {
         return (
             <>
                 {/*upper header section*/}
-                <div className="flex justify-between mt-2 text-xs pb-1 border-b-2">
+                <div className="flex justify-between mt-2 text-xs pb-1 border-b-2 flex-wrap">
                     <div className="flex text-gray-500 ml-36">
                         <LocalShippingIcon style={{fontSize : 18}}/>
                         <h5 className="text-gray-500 ml-3">ISLANDWIDE FREE DELIVER</h5>
@@ -48,7 +48,7 @@ export class Navbar extends Component {
                 </div>
 
                 {/*logo and search section*/}
-                <div className="flex justify-between pt-3 h-20 pb-3">
+                <div className="flex justify-between pt-3 h-20 pb-3 flex-wrap">
                     {/*logo*/}
                     <img src={logo} className="h-14 ml-36 mt-1"/>
 
