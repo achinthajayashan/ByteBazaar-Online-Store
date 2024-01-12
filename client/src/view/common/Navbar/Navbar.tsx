@@ -112,7 +112,7 @@ export class Navbar extends Component {
                     </div>
 
                     <p>
-                        <Link to="/signIn">
+                        <Link to="/login">
                             Login / Signup
                         </Link></p>
                 </div>

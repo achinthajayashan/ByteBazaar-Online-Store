@@ -9,6 +9,7 @@ import {Contact} from "../../pages/contact/Contact";
 import {SignIn} from "../../pages/signIn/SignIn";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
 import {ModifyCart} from "../ModifyCart/ModifyCart";
+import {Login} from "../../pages/login/Login";
 
 export class MainContent extends Component {
     render() {
@@ -21,6 +22,7 @@ export class MainContent extends Component {
                 <Route path="/policy" Component={Policy}></Route>
                 <Route path="/contact" Component={Contact}></Route>
                 <Route path="/signin" Component={SignIn}></Route>
+                <Route path="/login" Component={Login}></Route>
                 <Route path="/shopping-cart"
                        element={<ShoppingCart
                            itemsList={ModifyCart.itemsList}/>

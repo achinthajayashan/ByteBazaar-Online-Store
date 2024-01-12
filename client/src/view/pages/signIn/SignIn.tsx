@@ -1,10 +1,12 @@
 import {Component} from "react";
 
-export class Login extends Component {
+export class SignIn extends Component {
     render() {
         return (
             <>
-            <h1 className="text-gray-500 text-center">Login</h1>
+            <section>
+
+            </section>
             </>
         );
     }
