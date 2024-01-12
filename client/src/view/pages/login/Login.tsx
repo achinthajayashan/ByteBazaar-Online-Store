@@ -5,7 +5,7 @@ export class Login extends Component {
         return (
             <>
                 <section className="w-screen h-[80vh] flex justify-center items-center">
-                    <div className="shadow-md w-[25%] h-96 flex flex-col justify-center">
+                    <div className="shadow w-[25%] h-96 flex flex-col justify-center">
                         <h3 className="font-extrabold text-xl mb-8 ml-12">Login</h3>
 
                         <div>
