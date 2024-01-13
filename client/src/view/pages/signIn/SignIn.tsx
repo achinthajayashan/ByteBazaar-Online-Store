@@ -97,11 +97,11 @@ export class SignIn extends Component<SignInProps,SignInState> {
                 alert(jsonData);
             }).catch((error: any)=> {
                 console.error('Axios Error', error);
-                alert('error');
+                alert(error);
             });
         } catch (error) {
             console.error('Error submitting data:', error);
-            alert('error');
+            alert(error);
         }
     }
 }

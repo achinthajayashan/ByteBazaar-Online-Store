@@ -1,9 +1,18 @@
+const Customer = require("../model/Customer");
 const customerController={
-    submitCustomerDetails:function (req,res,next) {
-        const requestData =req.body;
-        console.log(requestData);
-        res.send("customer Details Received")
-    }
+    saveCustomer: async function (req, res, next) {
+        try {
+            const customerData = req.body;
+
+            const customer = await Customer.create(customerData);
+
+            res.status(200).json(customer);
+
+        }catch (err){
+            console.error(err);
+            res.status(500).json({error: 'something went wrong !'});
+        }
+    },
 }
 
 module.exports=customerController;
