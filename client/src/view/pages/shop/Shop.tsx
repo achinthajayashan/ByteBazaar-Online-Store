@@ -35,18 +35,25 @@ export class Shop extends Component {
         // @ts-ignore
         const {data} = this.state;
         return (
-            <div className="flex">
-                <div className="mt-5 mb-5 flex flex-wrap
+
+            <div >
+                <div className="h-44 w-[83%] bg-gray-50 text-center justify-center items-center flex ml-36 mr-36">
+                    <h1 className="text-[40px] ">SHOP</h1>
+                </div>
+                <div className="flex ml-12 mr-12 mt-6">
+                    <div className="mt-5 mb-5 flex flex-wrap
                                 justify-center
                                 items-center
                                 mx-auto">
-                    {
-                        data.map((product: any) => (
-                            <Product key={product.id} data={product}/>
-                        ))
-                    }
+                        {
+                            data.map((product: any) => (
+                                <Product key={product.id} data={product}/>
+                            ))
+                        }
 
+                    </div>
                 </div>
+
             </div>
         );
     }
