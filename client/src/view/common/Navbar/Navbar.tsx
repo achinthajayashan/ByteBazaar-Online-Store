@@ -17,7 +17,20 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import {Link} from "react-router-dom";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
+
+const userName= localStorage.getItem('userName');
+let content : JSX.Element;
+if(userName==null) {
+    content = <p>
+        <Link to="/login">
+            Login / Signup
+        </Link></p>;
+}else{
+    content= <p>Logged In As : {userName}</p>;
+}
+
 export class Navbar extends Component {
+
     render() {
         return (
             <>
@@ -111,10 +124,10 @@ export class Navbar extends Component {
                         </ul>
                     </div>
 
-                    <p>
-                        <Link to="/login">
-                            Login / Signup
-                        </Link></p>
+                    <div>{content}
+                    </div>
+
+
                 </div>
 
 

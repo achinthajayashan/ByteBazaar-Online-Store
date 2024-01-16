@@ -1,7 +1,63 @@
-import {Component} from "react";
+import {ChangeEvent, Component} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export class Login extends Component {
+interface LogInProps {
+    data: any;
+}
+
+interface LogInState {
+    email: string;
+    password: string;
+}
+
+
+export class Login extends Component<LogInProps, LogInState> {
+
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({ baseURL: `http://localhost:4000` });
+        this.state = {
+            email:"",
+            password:"",
+        };
+    }
+
+    handleMessageInputOnChange=(event: ChangeEvent<HTMLInputElement>) =>{
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value,
+        } as Pick<LogInState, keyof LogInState>);
+    }
+
+    private onLoginBtnClick = async () => {
+            const typedPW=this.state.password;
+            try {
+                await this.api.get('/customer/login/'+this.state.email, {
+                }).then((res: { data: any}) => {
+                    const jsonData = res.data;
+                    console.log(jsonData);
+                    console.log(jsonData[0].password);
+                    if (jsonData[0].password==typedPW){
+                        alert(this.state.email+" Login Success !");
+                        localStorage.setItem('userName', jsonData[0].name);
+                    }else{
+                        alert("Wrong Password")
+                    }
+                }).catch((error: any)=> {
+                    console.error('Axios Error', error);
+                    alert(error);
+                });
+
+            } catch (error) {
+                console.error("Axios Error", error);
+                alert(error);
+            }
+
+    };
+
     render() {
         return (
             <>
@@ -11,12 +67,16 @@ export class Login extends Component {
 
                         <div>
                             <label className="ml-12">Username / Email</label><br/>
-                            <input type="email" className="w-80 h-10 border-2 mt-3 ml-12"/>
+                            <input type="email" className="w-80 h-10 border-2 mt-3 ml-12" name="email"
+                                   value={this.state.email}
+                                   onChange={this.handleMessageInputOnChange}/>
                         </div>
 
                         <div className="mt-6">
                             <label className="ml-12 ">Password</label><br/>
-                            <input type="password" className="w-80 h-10 border-2 mt-3 ml-12"/>
+                            <input type="password" className="w-80 h-10 border-2 mt-3 ml-12" name="password"
+                                   value={this.state.password}
+                                   onChange={this.handleMessageInputOnChange}/>
                         </div>
 
                         <button className="bg-blue-950 h-10 text-white w-80 ml-12 mt-10" onClick={this.onLoginBtnClick}>
@@ -29,7 +89,5 @@ export class Login extends Component {
         );
     }
 
-    private onLoginBtnClick(){
-        alert("login success");
-    }
+
 }

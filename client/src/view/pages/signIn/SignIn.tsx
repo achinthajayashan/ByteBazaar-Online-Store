@@ -40,7 +40,7 @@ export class SignIn extends Component<SignInProps, SignInState> {
     }
 
     private onSendBtnClick = () => {
-        if (this.state.password==this.state.confirmPassword){
+        if (this.state.password == this.state.confirmPassword){
             try {
                 this.api.post('/customer/register/', {
                     name: this.state.name,

@@ -14,6 +14,19 @@ const customerController={
             res.status(500).json({error: 'something went wrong !'});
         }
     },
+
+    getdetail:async function (req, res, next) {
+        try {
+            const email = req.params.email;
+
+            const customer = await Customer.find({email: email});
+
+            res.status(200).json(customer);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({error: 'something went wrong !'});
+        }
+    },
 }
 
 module.exports=customerController;
