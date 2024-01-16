@@ -12,7 +12,7 @@ const CustomerModel=mongoose.Schema(
         },
         "phoneNumber": {
             require:true,
-            type:Number
+            type:String
         },
         "password": {
             require:true,

@@ -37,7 +37,7 @@ export class Shop extends Component {
         return (
 
             <div >
-                <div className="h-44 w-[83%] bg-gray-50 text-center justify-center items-center flex ml-36 mr-36">
+                <div className="h-44 w-[83%] bg-gray-50 text-center justify-center items-center flex ml-36 mr-36 mt-6">
                     <h1 className="text-[40px] ">SHOP</h1>
                 </div>
                 <div className="flex ml-12 mr-12 mt-6">

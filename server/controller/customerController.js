@@ -3,6 +3,7 @@ const customerController={
     saveCustomer: async function (req, res, next) {
         try {
             const customerData = req.body;
+            console.log(req.body);
 
             const customer = await Customer.create(customerData);
 
