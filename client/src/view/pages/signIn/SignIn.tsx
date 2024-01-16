@@ -1,6 +1,8 @@
 import React, {ChangeEvent, Component} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {Simulate} from "react-dom/test-utils";
+
 
 interface SignInProps {
     data: any;
@@ -11,6 +13,8 @@ interface SignInState {
     email: string;
     phoneNumber: string; // Change phoneNumber type to string
     password: string;
+    confirmPassword: string;
+
 }
 
 export class SignIn extends Component<SignInProps, SignInState> {
@@ -24,6 +28,7 @@ export class SignIn extends Component<SignInProps, SignInState> {
             email:"",
             phoneNumber:"",
             password:"",
+            confirmPassword:"",
         };
     }
 
@@ -35,21 +40,29 @@ export class SignIn extends Component<SignInProps, SignInState> {
     }
 
     private onSendBtnClick = () => {
-        try {
-            this.api.post('/customer/register/', {
-                name: this.state.name,
-                email:this.state.email,
-                phoneNumber:this.state.phoneNumber,
-                password:this.state.password
-            }).then((res: { data: any}) => {
-                const jsonData = res.data;
-                alert(jsonData.name+" Register Succuss");
-            });
+        if (this.state.password==this.state.confirmPassword){
+            try {
+                this.api.post('/customer/register/', {
+                    name: this.state.name,
+                    email:this.state.email,
+                    phoneNumber:this.state.phoneNumber,
+                    password:this.state.password
+                }).then((res: { data: any}) => {
+                    const jsonData = res.data;
+                    alert(jsonData.name+" Registration Success !");
+                }).catch((error: any)=> {
+                    console.error('Axios Error', error);
+                    alert(error);
+                });
 
-        } catch (error) {
-            console.error("Axios Error", error);
-            alert(error);
+            } catch (error) {
+                console.error("Axios Error", error);
+                alert(error);
+            }
+        }else{
+            alert("Passwords doesn't Match. Check It and Try Again")
         }
+
     };
 
     render() {
@@ -113,6 +126,9 @@ export class SignIn extends Component<SignInProps, SignInState> {
                                 <input
                                     type="password"
                                     className="w-80 h-10 border-2 mt-3 ml-12"
+                                    name="confirmPassword"
+                                    value={this.state.confirmPassword}
+                                    onChange={this.handleMessageInputOnChange}
                                 />
                             </div>
 

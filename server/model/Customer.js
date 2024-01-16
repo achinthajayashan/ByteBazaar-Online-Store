@@ -8,7 +8,8 @@ const CustomerModel=mongoose.Schema(
         },
         "email": {
             require:true,
-            type:String
+            type:String,
+            unique:true
         },
         "phoneNumber": {
             require:true,
