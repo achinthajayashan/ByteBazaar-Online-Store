@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Component} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 import axios from "axios";
@@ -21,6 +21,7 @@ function refreshPage() {
 
 
 export class Login extends React.Component<LogInProps, LogInState> {
+
 
     private api: any;
 
@@ -46,6 +47,8 @@ export class Login extends React.Component<LogInProps, LogInState> {
     }
 
     private onLoginBtnClick = async () => {
+
+
             const typedPW=this.state.password;
             try {
                 await this.api.get('/customer/login/'+this.state.email, {
@@ -59,6 +62,8 @@ export class Login extends React.Component<LogInProps, LogInState> {
                         localStorage.setItem('userEmail',jsonData[0].email);
                         localStorage.setItem('islogin','true');
                         refreshPage();
+                        window.location.href = '/';
+
                     }else{
                         alert("Wrong Password")
                     }
