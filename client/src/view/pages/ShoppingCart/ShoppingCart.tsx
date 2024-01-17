@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {CartItem} from "../../../model/CartItem";
+import axios from "axios";
 
 interface ShoppingCartProps {
     itemsList: CartItem[];
@@ -17,6 +18,29 @@ export class ShoppingCart
         });
 
         return total;
+    };
+
+    saveOrder = () => {
+        // Prepare order data
+        const orderData = {
+            customer:localStorage.getItem('userEmail'),
+            items: this.props.itemsList,
+            subtotal: this.calculateTotal(),
+            deliveryCharge: 0, // Change this according to your logic
+            discount: 0, // Change this according to your logic
+            totalToPay: this.calculateTotal() + 400 - 500 - 500,
+        };
+
+        // Make a POST request to your server to save the order
+        axios.post('http://localhost:4000/order/save', orderData)
+            .then(response => {
+                console.log("Order saved successfully:", response.data);
+                // Optionally, you can handle success, e.g., show a success message to the user
+            })
+            .catch(error => {
+                console.error("Error saving order:", error);
+                // Optionally, you can handle errors, e.g., show an error message to the user
+            });
     };
 
     render() {
@@ -101,10 +125,10 @@ export class ShoppingCart
                                 <h2 className="font-bold text-xl">{`Rs.${totalToPay.toFixed(2)}`}</h2>
                             </div>
 
-                            <a href='https://sandbox.payhere.lk/pay/o41328e52'>
-                                <button className="w-[100%] bg-green-700 text-white p-2 rounded mt-6">Checkout
+
+                                <button onClick={this.saveOrder} className="w-[100%] bg-green-700 text-white p-2 rounded mt-6">Place Order
                                 </button>
-                            </a>
+
 
 
                             <p className="text-center text-xs mt-1">Pay With <span
