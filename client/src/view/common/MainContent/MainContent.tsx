@@ -1,5 +1,4 @@
-import {Component} from "react";
-import {Route, Routes} from "react-router-dom";
+import React, {Component} from "react";
 import {Home} from "../../pages/home/Home";
 import {About} from "../../pages/about/About";
 import {Shop} from "../../pages/shop/Shop";
@@ -10,6 +9,8 @@ import {SignIn} from "../../pages/signIn/SignIn";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
 import {ModifyCart} from "../ModifyCart/ModifyCart";
 import {Login} from "../../pages/login/Login";
+import {MyAccount} from "../../pages/myAccount/MyAccount";
+import {Route, Routes} from "react-router-dom";
 
 export class MainContent extends Component {
     render() {
@@ -23,6 +24,7 @@ export class MainContent extends Component {
                 <Route path="/contact" Component={Contact}></Route>
                 <Route path="/signin" Component={SignIn}></Route>
                 <Route path="/login" Component={Login}></Route>
+                <Route path="/myaccount" Component={MyAccount}></Route>
                 <Route path="/shopping-cart"
                        element={<ShoppingCart
                            itemsList={ModifyCart.itemsList}/>

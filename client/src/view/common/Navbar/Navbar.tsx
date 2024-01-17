@@ -20,16 +20,28 @@ import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
 
 const userName= localStorage.getItem('userName');
 let content : JSX.Element;
-if(userName==null) {
+if(userName==" ") {
     content = <p>
         <Link to="/login">
             Login / Signup
         </Link></p>;
+
 }else{
     content= <p>Logged In As : {userName}</p>;
+
 }
 
+function refreshPage() {
+    window.location.reload();
+}
+
+
 export class Navbar extends Component {
+
+    private logout(){
+        localStorage.setItem('userName'," ");
+        refreshPage();
+    }
 
     render() {
         return (
@@ -51,6 +63,7 @@ export class Navbar extends Component {
                             <option className="border-0">ENGLISH
                         </option>
                         </select>
+                        <button onClick={this.logout}>LOGOUT</button>
                     </div>
 
                     {/*<div className="text-gray-500">*/}
@@ -80,7 +93,7 @@ export class Navbar extends Component {
                             <p className="font-light text-[8px]">24 Hrs Hotline</p>
                             <h4 className="text-xl text-gray-700">078 7155885</h4>
                         </div>
-                        <PersonOutlineOutlinedIcon style={{fontSize : 30}} className="mr-5 mt-2 hover:text-blue-900"/>
+                        <Link to="/myaccount"><PersonOutlineOutlinedIcon style={{fontSize : 30}} className="mr-5 mt-2 hover:text-blue-900"/></Link>
                         <FavoriteBorderOutlinedIcon style={{fontSize : 30}} className="mr-5 font-light mt-2 hover:text-blue-900"/>
                         <Link to="/shopping-cart"><ShoppingBagOutlinedIcon style={{fontSize : 30}} className="mt-2 hover:text-blue-900"/></Link>
 

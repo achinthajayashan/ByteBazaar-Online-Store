@@ -1,5 +1,7 @@
-import {ChangeEvent, Component} from "react";
+import React, {ChangeEvent, Component} from "react";
 import {Link} from "react-router-dom";
+
+
 import axios from "axios";
 
 interface LogInProps {
@@ -12,9 +14,19 @@ interface LogInState {
 }
 
 
-export class Login extends Component<LogInProps, LogInState> {
+function refreshPage() {
+    window.location.reload();
+}
+
+
+
+export class Login extends React.Component<LogInProps, LogInState> {
 
     private api: any;
+
+    static accountDetails=[];
+
+
 
     constructor(props: any) {
         super(props);
@@ -22,6 +34,7 @@ export class Login extends Component<LogInProps, LogInState> {
         this.state = {
             email:"",
             password:"",
+
         };
     }
 
@@ -41,8 +54,11 @@ export class Login extends Component<LogInProps, LogInState> {
                     console.log(jsonData);
                     console.log(jsonData[0].password);
                     if (jsonData[0].password==typedPW){
-                        alert(this.state.email+" Login Success !");
+                        alert(jsonData[0].name+" Login Success !");
                         localStorage.setItem('userName', jsonData[0].name);
+                        localStorage.setItem('userEmail',jsonData[0].email);
+                        localStorage.setItem('islogin','true');
+                        refreshPage();
                     }else{
                         alert("Wrong Password")
                     }
@@ -85,6 +101,7 @@ export class Login extends Component<LogInProps, LogInState> {
                         <p className="text-center mt-6">Don't Have An Account ? <br/><Link to="/signin" className="text-blue-900">Register Now</Link></p>
                     </div>
                 </section>
+
             </>
         );
     }
