@@ -40,6 +40,8 @@ export class Navbar extends Component {
 
     private logout(){
         localStorage.setItem('userName'," ");
+        localStorage.setItem('userEmail'," ");
+        localStorage.setItem('phoneNumber'," ");
         refreshPage();
     }
 

@@ -60,6 +60,7 @@ export class Login extends React.Component<LogInProps, LogInState> {
                         alert(jsonData[0].name+" Login Success !");
                         localStorage.setItem('userName', jsonData[0].name);
                         localStorage.setItem('userEmail',jsonData[0].email);
+                        localStorage.setItem('phoneNumber',jsonData[0].phoneNumber);
                         localStorage.setItem('islogin','true');
                         refreshPage();
                         window.location.href = '/';
