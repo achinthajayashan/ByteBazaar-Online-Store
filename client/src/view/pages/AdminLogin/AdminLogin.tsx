@@ -42,7 +42,8 @@ export class AdminLogin extends React.Component<LogInProps, LogInState> {
 
     private onLoginBtnClick = async () => {
 
-        alert("clicked ! ")
+        alert("clicked ! ");
+        window.location.href = '/admin/dashboard';
 
 
         // const typedPW=this.state.password;
@@ -82,7 +83,7 @@ export class AdminLogin extends React.Component<LogInProps, LogInState> {
                 <section className="w-screen h-[80vh] flex flex-col justify-center items-center">
                     <img src={logo} className="h-14 mb-6 mt-1"/>
                     <div className="shadow w-[25%] h-auto flex flex-col justify-center pt-6 pb-6">
-                        <h3 className="font-extrabold text-xl mb-8 ml-12">Login</h3>
+                        <h3 className="font-extrabold text-xl mb-8 text-center">Login</h3>
 
                         <div>
                             <label className="ml-12">Username / Email</label><br/>
