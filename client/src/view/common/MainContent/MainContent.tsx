@@ -11,6 +11,7 @@ import {ModifyCart} from "../ModifyCart/ModifyCart";
 import {Login} from "../../pages/login/Login";
 import {MyAccount} from "../../pages/myAccount/MyAccount";
 import {Route, Routes} from "react-router-dom";
+import {Navbar} from "../Navbar/Navbar";
 
 export class MainContent extends Component {
     render() {

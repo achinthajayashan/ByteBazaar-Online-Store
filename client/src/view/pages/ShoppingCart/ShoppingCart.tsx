@@ -21,34 +21,32 @@ export class ShoppingCart
     };
 
     saveOrder = () => {
-        // Prepare order data
         const orderData = {
             customer:localStorage.getItem('userEmail'),
             items: this.props.itemsList,
             subtotal: this.calculateTotal(),
-            deliveryCharge: 0, // Change this according to your logic
-            discount: 0, // Change this according to your logic
-            totalToPay: this.calculateTotal() + 400 - 500 - 500,
+            deliveryCharge: 0,
+            discount: 0,
+            totalToPay: this.calculateTotal() + 0 - 0 - 0,
         };
 
-        // Make a POST request to your server to save the order
         axios.post('http://localhost:4000/order/save', orderData)
             .then(response => {
                 console.log("Order saved successfully:", response.data);
-                // Optionally, you can handle success, e.g., show a success message to the user
+                alert("Order Placed Successfully ! ")
             })
             .catch(error => {
                 console.error("Error saving order:", error);
-                // Optionally, you can handle errors, e.g., show an error message to the user
+                alert("error Occured"+error)
             });
     };
 
     render() {
         const subtotal = this.calculateTotal();
-        const deliveryCharge = 0; // Assuming a fixed delivery charge
-        const discount = 0; // Assuming a fixed discount
+        const deliveryCharge = 0;
+        const discount = 0;
 
-        const promotions = 0; // Assuming a fixed promotional amount
+        const promotions = 0;
 
         const totalToPay = subtotal + deliveryCharge - discount - promotions;
         return (

@@ -1,11 +1,9 @@
 import {Component} from "react";
 
-export class AdminDashboard extends Component {
+export class AdminContent extends Component {
     render() {
         return (
-            <>
-
-            </>
+            <></>
         );
     }
 }
