@@ -27,6 +27,17 @@ const customerController={
             res.status(500).json({error: 'something went wrong !'});
         }
     },
+
+    getAllCustomers:async function (req, res, next) {
+        try {
+            const productList = await Customer.find();
+
+            res.status(200).json(productList);
+        }catch (err){
+            console.log(err);
+            res.status(500).json({error:'something went wrong !'});
+        }
+    },
 }
 
 module.exports=customerController;

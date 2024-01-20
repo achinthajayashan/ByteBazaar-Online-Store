@@ -13,13 +13,14 @@ import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart";
 import {ModifyCart} from "../ModifyCart/ModifyCart";
 import {AdminDashboard} from "../../pages/adminDashboard/AdminDashboard";
 import {AdminLayout} from "../AdminLayout/AdminLayout";
+import {AdminCustomers} from "../../pages/AdminCustomers/AdminCustomers";
 
 export class AdminContent extends Component {
     render() {
         return (
             <Routes>
                 <Route path="/dashboard" Component={AdminDashboard}></Route>
-                {/*<Route path="/about" Component={About}></Route>*/}
+                <Route path="/customers" Component={AdminCustomers}></Route>
                 {/*<Route path="/shop" Component={Shop}></Route>*/}
                 {/*<Route path="/track" Component={TrackOrder}></Route>*/}
                 {/*<Route path="/policy" Component={Policy}></Route>*/}
