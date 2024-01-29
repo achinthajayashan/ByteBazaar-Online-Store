@@ -2,17 +2,18 @@ import React, {Component} from "react";
 import axios from "axios";
 import {Product} from "../../common/Product/Product";
 
-interface AdminCustomersState {
-    customers: Array<{
+interface AdminProductsState {
+    products: Array<{
         _id: string;
+        id:string;
+        category: string;
         name: string;
-        email: string;
-        phoneNumber: string;
-        userName: string;
+        price: number;
+
     }>;
 }
 
-export class AdminCustomers extends Component<{},AdminCustomersState> {
+export class AdminProducts extends Component<{},AdminProductsState> {
 
     private api: any;
 
@@ -20,7 +21,7 @@ export class AdminCustomers extends Component<{},AdminCustomersState> {
         super(props);
         this.api = axios.create({ baseURL: `http://localhost:4000` });
         this.state = {
-            customers: [],
+            products: [],
         };
     }
 
@@ -29,9 +30,9 @@ export class AdminCustomers extends Component<{},AdminCustomersState> {
     }
     fetchData = async ()=> {
         try {
-            await this.api.get('/customer/all')
+            await this.api.get('/products/all')
                 .then((res: { data: any }) => {
-                    this.setState({ customers: res.data });
+                    this.setState({ products: res.data });
                     console.log(res.data);
                     console.log(res.data[0].name);
                 }).catch((error: any)=> {
@@ -42,30 +43,30 @@ export class AdminCustomers extends Component<{},AdminCustomersState> {
         }
     }
     render() {
-        const { customers } = this.state;
+        const { products } = this.state;
 
         return (
             <>
                 <section className="w-full h-[94.8%] flex flex-col items-center">
-                    <h3 className="font-bold mt-6 mb-0 text-lg">All Customers</h3>
+                    <h3 className="font-bold mt-6 mb-0 text-lg">All Products</h3>
                     <section className="w-[90%] mt-10 flex flex-wrap">
                         <table className="w-full mx-6 h-auto">
                             <tr className="bg-blue-950 text-white h-10">
+                                <th className="text-[16px] font-normal  px-1">Id</th>
+                                <th className="text-[16px] font-normal  px-1">Category</th>
                                 <th className="text-[16px] font-normal  px-1">Name</th>
-                                <th className="text-[16px] font-normal  px-1">Email</th>
-                                <th className="text-[16px] font-normal  px-1">Telephone Number</th>
-                                <th className="text-[16px] font-normal  px-1">User Name</th>
+                                <th className="text-[16px] font-normal  px-1">Price</th>
                                 <th className="text-[16px] font-normal  px-1">Option</th>
                             </tr>
 
                             <tbody>
-                            {customers.map((customer) => (
-                                <tr className="h-12" key={customer._id}>
-                                    <td>{customer.name}</td>
-                                    <td>{customer.email}</td>
-                                    <td>{customer.phoneNumber}</td>
+                            {products.map((product) => (
+                                <tr className="h-12" key={product._id}>
+                                    <td>{product.id}</td>
+                                    <td>{product.category}</td>
+                                    <td>{product.name}</td>
                                     {/* Replace with the actual field name */}
-                                    <td>{customer.email}</td>
+                                    <td>Rs. {product.price} .00</td>
                                     {/* Replace with the actual field name */}
                                     <td>
                                         <button className=" bg-red-500 text-white p-1 rounded">Delete</button>

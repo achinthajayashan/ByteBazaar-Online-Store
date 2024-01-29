@@ -23,6 +23,10 @@ const OrderModel=mongoose.Schema(
         "totalToPay": {
             require:true,
             type:Number
+        },
+        "status": {
+            require:true,
+            type:String
         }
     },
     {versionKey:false}

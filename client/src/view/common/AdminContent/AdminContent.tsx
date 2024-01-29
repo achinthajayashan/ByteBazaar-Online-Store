@@ -14,6 +14,8 @@ import {ModifyCart} from "../ModifyCart/ModifyCart";
 import {AdminDashboard} from "../../pages/adminDashboard/AdminDashboard";
 import {AdminLayout} from "../AdminLayout/AdminLayout";
 import {AdminCustomers} from "../../pages/AdminCustomers/AdminCustomers";
+import {AdminOrders} from "../../pages/AdminOrders/AdminOrders";
+import {AdminProducts} from "../../pages/AdminProducts/AdminProducts";
 
 export class AdminContent extends Component {
     render() {
@@ -21,8 +23,8 @@ export class AdminContent extends Component {
             <Routes>
                 <Route path="/dashboard" Component={AdminDashboard}></Route>
                 <Route path="/customers" Component={AdminCustomers}></Route>
-                {/*<Route path="/shop" Component={Shop}></Route>*/}
-                {/*<Route path="/track" Component={TrackOrder}></Route>*/}
+                <Route path="/orders" Component={AdminOrders}></Route>
+                <Route path="/products" Component={AdminProducts}></Route>
                 {/*<Route path="/policy" Component={Policy}></Route>*/}
                 {/*<Route path="/contact" Component={Contact}></Route>*/}
                 {/*<Route path="/signin" Component={SignIn}></Route>*/}

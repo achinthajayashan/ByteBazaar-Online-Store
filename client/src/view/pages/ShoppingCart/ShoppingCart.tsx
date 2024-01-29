@@ -23,11 +23,13 @@ export class ShoppingCart
     saveOrder = () => {
         const orderData = {
             customer:localStorage.getItem('userEmail'),
+            date: new Date().toISOString(),
             items: this.props.itemsList,
             subtotal: this.calculateTotal(),
             deliveryCharge: 0,
             discount: 0,
             totalToPay: this.calculateTotal() + 0 - 0 - 0,
+            status: 'pending'
         };
 
         axios.post('http://localhost:4000/order/save', orderData)
@@ -37,7 +39,7 @@ export class ShoppingCart
             })
             .catch(error => {
                 console.error("Error saving order:", error);
-                alert("error Occured"+error)
+                alert("Error Occured"+error)
             });
     };
 
@@ -45,7 +47,6 @@ export class ShoppingCart
         const subtotal = this.calculateTotal();
         const deliveryCharge = 0;
         const discount = 0;
-
         const promotions = 0;
 
         const totalToPay = subtotal + deliveryCharge - discount - promotions;

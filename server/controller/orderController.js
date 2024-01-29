@@ -19,6 +19,17 @@ const orderController={
         }
     },
 
+    getall:async function (req, res, next) {
+        try {
+            const orders = await Order.find();
+
+            res.status(200).json(orders);
+        }catch (e) {
+            console.error(e);
+            res.status(500).json({error: 'Something went wrong!'});
+        }
+    }
+
 }
 
 module.exports=orderController;

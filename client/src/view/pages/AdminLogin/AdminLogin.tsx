@@ -1,7 +1,8 @@
 import React, {ChangeEvent, Component} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import logo from "../../../images/logo wide.png";
+import {AdminLayout} from "../../common/AdminLayout/AdminLayout";
 
 interface LogInProps {
     data: any;
@@ -43,6 +44,11 @@ export class AdminLogin extends React.Component<LogInProps, LogInState> {
     private onLoginBtnClick = async () => {
 
         alert("clicked ! ");
+        // <Routes>
+        //     <Route path="/admin/*" Component={AdminLayout}>
+        // </Route>
+        // </Routes>
+
         window.location.href = '/admin/dashboard';
 
 
